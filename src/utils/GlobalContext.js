@@ -72,7 +72,7 @@ const GlobalContextProvider = (props) => {
     try {
       const response = await axiosInstance.get(url);
       setLoadingScreen(false);
-      return response?.data?.data || response;
+      return response?.data?.data || response?.data || response;
     } catch (reponseError) {
       const error = new Error("Bir hata oluştu.");
       setLoadingScreen(false);

@@ -12,15 +12,13 @@ const Login = () => {
 
   const gContext = useGlobal();
   const { data, mutate } = gContext.useGetData(
-    open
-      ? "http://192.168.1.6:8080/hello?name=rifki"
-      : "https://run.mocky.io/v3/0928fdf5-59a1-4bdb-a8db-10e00d70592e"
+    "http://192.168.1.189:8080/users"
   );
 
   useEffect(() => {
     mutate();
-    // console.log(data);
-  }, [open]);
+    console.log(data);
+  }, [open, data]);
 
   const onSubmit = (values) => {};
 
@@ -57,7 +55,7 @@ const Login = () => {
         justifyContent="center"
         direction="column"
       >
-        <Text>{data?.user || data?.content}</Text>
+        {/*<Text>{data?.user || data?.content}</Text>*/}
         <Stack
           direction="column"
           style={{ width: "80%" }}
@@ -94,7 +92,9 @@ const Login = () => {
             <Button
               buttonColor="black"
               mode="contained"
-              onPress={formik.resetForm}
+              onPress={() => {
+                formik.resetForm();
+              }}
             >
               Reset
             </Button>

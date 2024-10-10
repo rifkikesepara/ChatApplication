@@ -1,12 +1,30 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
-import { Button, Text } from "react-native-paper";
-import { Login } from "./pages";
+import { ImageBackground, StyleSheet, View } from "react-native";
+import { Login, Test } from "./pages";
+import { ActivityIndicator } from "react-native-paper";
+import useGlobal from "./utils/useGlobal";
 
 export default function App() {
+  const gContext = useGlobal();
+
   return (
     <View style={styles.container}>
-      <Login />
+      {gContext.loadingScreen && (
+        <View
+          style={{
+            position: "absolute",
+            zIndex: 200,
+            flex: 1,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <ActivityIndicator />
+        </View>
+      )}
+      <Test />
     </View>
   );
 }
