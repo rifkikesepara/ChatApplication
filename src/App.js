@@ -1,14 +1,14 @@
-import { ImageBackground, StyleSheet, View } from "react-native";
 import { Login, Test } from "./pages";
 import { ActivityIndicator } from "react-native-paper";
 import useGlobal from "./utils/useGlobal";
+import { StatusBar, StyleSheet, View } from "react-native";
 
 export default function App() {
   const gContext = useGlobal();
 
   return (
     <View style={styles.container}>
-      {gContext.loadingScreen && (
+      {/* {gContext.loadingScreen && (
         <View
           style={{
             position: "absolute",
@@ -23,8 +23,10 @@ export default function App() {
         >
           <ActivityIndicator />
         </View>
-      )}
-      <Test />
+      )} */}
+      {/* <Test /> */}
+      <StatusBar barStyle="default" />
+      <Login />
     </View>
   );
 }

@@ -1,4 +1,4 @@
-import { Keyboard, TouchableWithoutFeedback } from "react-native";
+import { Keyboard } from "react-native";
 import { TouchableRipple } from "react-native-paper";
 
 const DismissKeyboard = ({ children }) => {

@@ -1,5 +1,5 @@
 import { TextInput } from "react-native-paper";
-import DismissKeyboard from "./DismissKeyboard";
+import { TextFieldProps } from "./Types";
 
 const TextField = ({
   placeholder,
@@ -7,16 +7,16 @@ const TextField = ({
   style,
   value,
   error,
+  mode = "flat",
   onChangeText = (text) => {},
-}) => {
+  keyboardType,
+  ...props
+}: TextFieldProps) => {
   return (
     <TextInput
       style={[
         {
           width: "100%",
-          borderTopRightRadius: 20,
-          borderTopLeftRadius: 20,
-          borderRadius: 20,
           overflow: "hidden",
         },
         style,
@@ -26,6 +26,9 @@ const TextField = ({
       label={label}
       value={value}
       error={error}
+      mode={mode}
+      keyboardType={keyboardType}
+      {...props}
     />
   );
 };
