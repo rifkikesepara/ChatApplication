@@ -4,22 +4,20 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import useGlobal from "../../utils/useGlobal";
 import { useEffect, useState } from "react";
-import TextField from "../../components/TextField";
-import Stack from "../../components/Stack";
-import CheckBox from "../../components/CheckBox";
+import { CheckBox, Stack, TextField } from "../../components";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [open, setOpen] = useState(false);
 
   const gContext = useGlobal();
-  const { data, mutate } = gContext.useGetData(
-    "http://192.168.1.189:8080/users"
-  );
+  // const { data, mutate } = gContext.useGetData(
+  //   "http://192.168.1.189:8080/users"
+  // );
 
-  useEffect(() => {
-    mutate();
-    console.log(data);
-  }, [open, data]);
+  // useEffect(() => {
+  //   mutate();
+  //   console.log(data);
+  // }, [open, data]);
 
   const onSubmit = (values) => {};
 
@@ -33,6 +31,8 @@ const Login = () => {
   });
 
   const submitNotification = () => {
+    navigation.navigate("Home");
+
     formik.handleSubmit();
 
     if (Object.values(formik.errors).length > 0 || !formik.values.username)

@@ -6,6 +6,7 @@ interface StackProps {
   children: React.JSX.Element;
   direction?: "row" | "column";
   width?: DimensionValue;
+  height?: DimensionValue;
   justifyContent?:
     | "center"
     | "flex-end"

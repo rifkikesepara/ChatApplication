@@ -4,6 +4,7 @@ import { StackProps } from "./Types";
 const Stack = ({
   children,
   width = "100%",
+  height,
   style,
   direction = "row",
   alignItems = "flex-start",
@@ -20,6 +21,7 @@ const Stack = ({
           justifyContent: justifyContent,
           gap: spacing,
           width: width,
+          height: height,
         },
         style,
       ]}
